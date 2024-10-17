@@ -1,6 +1,8 @@
 <!DOCTYPE HTML>
 
 <html>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+
 <style>
 .prev, .next {
 	cursor: pointer;
@@ -91,6 +93,19 @@
     font-size: 1em;  /* Adjust font size as needed */
 }
 
+
+.icons.major .images {
+    width: 300px;  /* Set the desired width */
+    height: 300px; /* Set the desired height */
+    object-fit: contain; /* Ensures the image maintains its aspect ratio */
+    margin-bottom: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.125); /* Adds a gray outline to the logos */
+    padding: 10px; /* Optional: Adds padding inside the border */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for a 3D effect */
+}
+
+
+
 * {box-sizing: border-box;}
 body {font-family: Verdana, sans-serif;}
 .mySlides {display: none;}
@@ -147,6 +162,22 @@ img {vertical-align: middle;}
 	animation-duration: 1.5s;
 }
 
+/* Base Header Style */
+#header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    background-color: rgba(46, 56, 66, 0.9);
+    transition: background-color 0.5s ease;
+}
+
+/* Transparent Header */
+#header.header-transparent {
+    background-color: transparent;
+}
+
+
 @keyframes fade {
 	from {opacity: .4} 
 	to {opacity: 1}
@@ -156,6 +187,22 @@ img {vertical-align: middle;}
 @media only screen and (max-width: 300px) {
 	.text {font-size: 11px}
 }
+.iframe-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* This maintains a 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 </style>
 	<head>
 		<title>Harlan Phillip's Portfolio Site</title>
@@ -165,12 +212,15 @@ img {vertical-align: middle;}
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="landing is-preload">
-
+		<video autoplay muted loop playsinline id="bg-video">
+			<source src="images/banner.mp4" type="video/mp4">
+			Your browser does not support the video tag.
+		</video>
 		<!-- Page Wrapper -->
 			<div id="page-wrapper">
 
 				<!-- Header -->
-					<header id="header" class="alt">
+					<header id="header" class="alt" >
 						<h1><a href="index.html">Harlan Phillips</a></h1>
 						<nav id="nav">
 							<ul>
@@ -189,33 +239,43 @@ img {vertical-align: middle;}
 								</li>
 							</ul>
 						</nav>
+						
 					</header>
 
 				<!-- Banner -->
-					<section id="banner">
-						<div class="inner">
-							<h2>Harlan Phillips</h2>
-							<p>Welcome to my website,<br />
-							connect with
-							me on <a href="https://www.linkedin.com/in/harlan-t-phillips/">linkedin</a>.</p>
-							<ul class="actions special">
-								<li><a href="pdfs\Harlan-Phillips_Resume.pdf" class="button primary">View Resume</a></li>
-							</ul>
-						</div>
-						<a href="#one" class="more scrolly">Learn More</a>
-					</section>
+				<section id="banner">
+					<div class="inner">
+						<h2>Harlan Phillips</h2>
+						<p>Welcome to my website,<br />
+						connect with me on <a href="https://www.linkedin.com/in/harlan-t-phillips/">linkedin</a>.</p>
+						<ul class="actions special">
+							<li><a href="pdfs\HarlanPhillipsResume.pdf" class="button primary">View Resume</a></li>
+						</ul>
+						
+					</div>
+					<a href="#one" class="more scrolly">Learn More</a>
 					
+				</section>
+				
 				<!-- One -->
 					<section id="one" class="wrapper style1 special">
 						<div class="inner">
 							<header class="major">
 								<h2>About me
 								</h2>
-								<p>I am currently studying Electrical Engineering and Computer Sciences at the University of California, Berkeley. With years of Python programming experience, I excel in data analysis, automation, and machine learning. 
+								<ul class="icons major">
+									<li><img src="images\hp_1.png"  class="images style1"><span class="label"></span></li>
+									<li><img src="images\hp_2.png"  class="images style1"><span class="label"></span></li>
+									<li><img src="images\hp_3.png"  class="images style2"><span class="label"></span></li>
+								</ul>
+								
+								<p>I am currently studying Electrical Engineering and Computer Sciences at the University of California, Berkeley. With years of engineering experience, I excel in integration, full-stack development, cloud computing, data analysis, and machine learning. 
 									<br />
 									<p></p>
-									At Cornell University I'm developing a full-stack web application to classify transients using Flask, HTML, CSS, and SQL. I deployed this application on Amazon AWS EC2 and am currently working on a machine learning model to automate and streamline classifications.
+									In my current role at NASA Johnson Space Center, I work in the JSC Exploration Wireless Laboratory (JEWL) on an ambitious project to establish WiFi and cellular communication on the Moon. Specifically, we are developing lunar surface communication systems between spacesuits, the rover, and the lander. I am focusing on developing a WebRTC-based technology, the first of its kind designed for astronauts, to facilitate reliable and efficient communication on the lunar surface.
 									<br />
+									<p></p>
+									Simultaneously, I am conducting research at Cornell University, where I am developing a full-stack web application to classify astronomical transients using Flask, HTML, CSS, and SQL. I have deployed this application on Amazon AWS EC2 and am working on a machine learning model to automate and streamline classifications.									<br />
 									<p></p>
 									My professional journey includes impactful internships at NASA, where I contributed to cutting-edge projects at NASA Ames Research Center. Additionally, I gained valuable experience working at the Bureau of Land Management, focusing on infrared and magnetic sensors. Other relevant experience include my role as a Tech Fellow at Codepath and a mentor at Curious Cardinals.
 									</p>
@@ -224,6 +284,7 @@ img {vertical-align: middle;}
 								<li><img src="images\berkeley.png"  class="logo style1"><span class="label"></span></li>
 								<li><img src="images\cornell-logo.png"  class="logo style1"><span class="label"></span></li>
 								<li><img src="images\nasa_logo.png"  class="logo style2"><span class="label"></span></li>
+								<li><img src="images\codepath.png"  class="logo style3"><span class="label"></span></li>
 								<li><img src="images\blm_logo.png"  class="logo style3"><span class="label"></span></li>
 							</ul>
 						</div>
@@ -235,25 +296,109 @@ img {vertical-align: middle;}
 							</header>
 					</div>
 				</section>
+				<div class="timeline-container">
+					<!-- Years -->
+					<div class="timeline">
+					  <div class="timeline-date"><div>2023</div></div>
+					  <div class="timeline-date"><div>2024</div></div>
+					</div>
+					<!-- Timeline Bars -->
+					<div class="timeline-bar-container">
+					  <!-- Each bar represents an experience -->
+					  <div class="timeline-bar" data-title="NASA Johnson Space Center" data-start="2024-06-01" data-end="2024-05-31">
+						<span class="timeline-label">NASA Johnson Space Center</span>
+					  </div>
+					  <div class="timeline-bar" data-title="Research at Cornell University" data-start="2024-06-01" data-end="2024-05-31">
+						<span class="timeline-label">Cornell University</span>
+					  </div>
+					  <div class="timeline-bar" data-title="Curious Cardinals" data-start="2024-06-01" data-end="2024-05-31">
+						<span class="timeline-label">Curious Cardinals</span>
+					  </div>
+					  <div class="timeline-bar" data-title="CodePath" data-start="2024-06-01" data-end="2024-05-31">
+						<span class="timeline-label">CodePath</span>
+					  </div>
+					  <div class="timeline-bar" data-title="NASA Ames Research Center" data-start="2024-06-01" data-end="2024-05-31">
+						<span class="timeline-label">NASA Ames Research Center</span>
+					  </div>
+					  <div class="timeline-bar" data-title="MESA" >
+						<span class="timeline-label">MESA</span>
+					  </div>
+					  <div class="timeline-bar" data-title="blm" >
+						<span class="timeline-label">Bureau of Land Management</span>
+					  </div>
+					</div>
+				  </div>
+				<section class="spotlight">
+					<div class="image">
+						<div class="mySlides4 fade">
+							<img src="images/jewl-metrics/jewl-1.png" style="width:100%">
+						</div>
+						<div class="mySlides4 fade">
+							<img src="images/jewl-metrics/jewl-2.png" style="width:100%">
+						</div>
+						<div class="mySlides4 fade">
+							<img src="images/jewl-metrics/jewl-3.png" style="width:100%">
+						</div>
+						<div class="mySlides4 fade">
+							<img src="images/jewl-metrics/jewl-4.png" style="width:100%">
+						</div>
+						<div class="mySlides4 fade">
+							<img src="images/jewl-metrics/jewl-5.png" style="width:100%">
+						</div>
+						<div class="mySlides4 fade">
+							<img src="images/jewl-metrics/jewl-6.png" style="width:100%">
+						</div>
+					</div>
+					<div class="content">
+						<h2>JEWL Metrics Dashboard<br />
+						- NASA's JSC Exploration Wireless Laboratory</h2>
+						<p>This tool organizes and presents data from lunar WiFi and cellular technology field tests. Used by NASA engineers and presented to partners like Axiom and Nokia Bell Labs.
+						<br /><br /> Made with: Python, Plotly, Pandas, Numpy and Matplotlib. 
+						<br /><br /> Hosted with Streamlit.
+						</p>
+						<ul class="icons">
+							<li><a href="https://github.com/Harlan-Phillips/JEWL-Metrics-Dashboard" class="icon brands fa-github"><span class="label">Github</span></a></li>
+							<li><a href="https://jewl-metrics-dashboard.streamlit.app/" class="icon brands fa-dribbble"><span class="label">Link to Website</span></a></li>
+						</ul>
+					</div>
+				</section>
+				<section class="spotlight">
+					<div class="image">
+						<div id="observablehq-ensembleVisualization-094941a1"></div>
+					</div>
+					<div class="content">
+						<h2>CosmoNetBot<br />
+						- Cornell University</h2>
+						<p>A pioneering machine learning model designed to assist in  <a href="http://astro.vaporia.com/start/transient.html">transient</a> classification,
+							leveraging LSTM and XGBoost to analyze and classify astronomical events.
+						<br /><br /> Made with: Python, Tensorflow, Sklearn, XGBoost, Astropy, Optuna.
+						<br /><br /> (Interactable diagram on the right made with D3.js)
+						</p>
+
+					</div>
+				</section>
 				<section class="spotlight">
 					<div class="image">
 						<div class="mySlides1 fade">
-							<img src="images/c-1.png" style="width:100%">
+							<img src="images/ztf-web/ztf-1.png" style="width:100%">
 						</div>
 						<div class="mySlides1 fade">
-							<img src="images/c-2.png" style="width:100%">
+							<img src="images/ztf-web/ztf-2.png" style="width:100%">
 						</div>
 						<div class="mySlides1 fade">
-							<img src="images/c-3.png" style="width:100%">
+							<img src="images/ztf-web/ztf-3.png" style="width:100%">
 						</div>
 						<div class="mySlides1 fade">
-							<img src="images/c-4.png" style="width:100%">
+							<img src="images/ztf-web/ztf-4.png" style="width:100%">
 						</div>
 						<div class="mySlides1 fade">
-							<img src="images/c-5.png" style="width:100%">
+							<img src="images/ztf-web/ztf-5.png" style="width:100%">
 						</div>
 						<div class="mySlides1 fade">
-							<img src="images/c-6.png" style="width:100%">
+							<img src="images/ztf-web/ztf-6.png" style="width:100%">
+						</div>
+						<div class="mySlides1 fade">
+							<img src="images/ztf-web/ztf-7.png" style="width:100%">
 						</div>
 					</div>
 					<div class="content">
@@ -266,8 +411,8 @@ img {vertical-align: middle;}
 						</p>
 						<ul class="icons">
 							<li><a href="https://github.com/Harlan-Phillips/classifyingapp" class="icon brands fa-github"><span class="label">Github</span></a></li>
-							<li><a href="pdfs\ztf_pres.pdf" class="icon brands fa-slideshare"><span class="label">Presentation</span></a></li>
-							<li><a href="Kern Medical Code Society Presentation.pdf" class="icon brands fa-dribbble"><span class="label">Link to Website</span></a></li>
+							<li><a href="pdfs/Harlan_Phillips_Poster_REU2024.pdf" class="icon fas fa-file-pdf"><span class="label">Presentation</span></a></li>
+							<li><a href="https://sites.astro.caltech.edu/ztf-newsletter/harlan-phillips.html" class="icon brands fa-dribbble"><span class="label">Link to Website</span></a></li>
 						</ul>
 					</div>
 				</section>
@@ -312,10 +457,32 @@ img {vertical-align: middle;}
 					</div>
 				</section>
 				<section class="spotlight">
-					<div class="image"><img src="images\kernmedical.jpg" alt="" /></div><div class="content">
+					<div class="image">
+						<div class="iframe-container">
+							<iframe src="https://www.youtube.com/embed/TrJgYYgM3ps?si=-x1tNPSKGCN3Dq_W" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+						</div>
+					</div>
+					<div class="content">
+						<h2>Interstellar Automated Visualizer (IAV)<br />
+						- NASA Global Space Apps 2024</h2>
+						<p>An innovative tool that transforms NASA's <a href="https://osdr.nasa.gov/bio/repo/search?q=&data_source=cgene,alsda&data_type=study">OSDR datasets</a> into informative visualizations of spaceflight experiments, saving scientists hours on graphical creation.
+						<br /><br />Made with React, Flask, Langchain, Dash, and SQL.
+						<br />Hosted on Google Cloud (Contact for access to the tool)
+						</p>
+						<ul class="icons">
+							<li><a href="https://www.youtube.com/embed/TrJgYYgM3ps?si=-x1tNPSKGCN3Dq_W" class="icon brands fa-youtube"><span class="label">Youtube</span></a></li>
+							<li><a href="https://www.spaceappschallenge.org/nasa-space-apps-2024/find-a-team/space-meatballs/?tab=project" class="icon brands fa-dribbble"><span class="label">Project Site</span></a></li>
+						</ul>
+					</div>
+				</section>
+				<section class="spotlight">
+					<div class="image"><div class="iframe-container"><iframe src="https://www.youtube.com/embed/7ysKSaXaoI4?si=6OyVHpPuEtoBX9Cr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div>
+					<div class="content">
 						<h2>Kern Medical System Automation<br />
 						- Backend Lead</h2>
-						<p>After I founded the Code Society at Bakersfield College, we parterned with Kern Medical to design and deploy an automated check-in system.</p>
+						<p>After I founded the Code Society at Bakersfield College, we parterned with Kern Medical to design and deploy an automated check-in system.
+							<br /><br />Made with Django, HTML/CSS/JS, SQL, and Python.
+						</p>
 						<ul class="icons">
 							<li><a href="https://github.com/Acnchan8/KMC-CheckInWebApp" class="icon brands fa-github"><span class="label">Github</span></a></li>
 							<li><a href="https://www.youtube.com/watch?v=7ysKSaXaoI4&ab_channel=AustinChan" class="icon brands fa-youtube"><span class="label">Youtube</span></a></li>
@@ -343,7 +510,8 @@ img {vertical-align: middle;}
 						<div class="image"><img src="images/pic01.jpg" alt="" class="resize-image-h" /></div><div class="content">
 							<h2>Alara
 							- Your Virtual Trainer</h2>
-							<p>In only 36 hours Alara was born at <a href="https://la-hacks-2024.devpost.com/">LA Hacks</a> 2024. Alara uses computer vision to analyze your physique in real time creating personalized workout plans that adapt as you progress. Developed with Python, OpenCV, <a href="https://ai.google.dev/gemini-api">Gemini</a>, and <a href="https://reflex.dev/">Reflex</a>. </p>
+							<p>In only 36 hours Alara was born at <a href="https://la-hacks-2024.devpost.com/">LA Hacks</a> 2024. Alara uses computer vision to analyze your physique in real time creating personalized workout plans that adapt as you progress.
+								 <br /><br />Developed with Python, OpenCV, <a href="https://ai.google.dev/gemini-api">Gemini</a>, and <a href="https://reflex.dev/">Reflex</a>. </p>
 							<ul class="icons">
 								<li><a href="https://github.com/brfoley/UCLA_HACK" class="icon brands fa-github"><span class="label">Github</span></a></li>
 								<li><a href="https://www.youtube.com/watch?v=7ea1iPlDZKs&ab_channel=KaanKoc" class="icon brands fa-youtube"><span class="label">Youtube</span></a></li>
@@ -422,7 +590,6 @@ img {vertical-align: middle;}
 					</footer>
 
 			</div>
-
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
@@ -433,37 +600,150 @@ img {vertical-align: middle;}
 			<script src="assets/js/main.js"></script>
 
 	</body>
-
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+import define from "https://api.observablehq.com/@model-ml/new.js?v=4";
+new Runtime().module(define, name => {
+	if (name === "ensembleVisualization") return new Inspector(document.querySelector("#observablehq-ensembleVisualization-094941a1"));
+});
+</script>
 <script>
-let slideIndex1 = 0;
-showSlides1();
+	  const experiences = [
+    {
+      title: 'NASA Johnson Space Center',
+      start: '2024-08-12',
+      end: 'present',
+      link: 'https://www.nasa.gov/johnson/', // Optional: URL to more details
+    },
+    {
+      title: 'Research at Cornell University',
+      start: '2024-06-03',
+      end: 'present',
+      link: 'https://sites.astro.caltech.edu/ztf-newsletter/harlan-phillips.html',
+    },
+	{
+      title: 'Curious Cardinals',
+      start: '2024-07-01',
+      end: 'present',
+      link: 'https://app.curiouscardinals.com/mentors/harlan-thien',
+    },
+	{
+      title: 'CodePath',
+      start: '2024-05-15',
+      end: '2024-08-15',
+      link: 'https://www.codepath.org/',
+    },
+	{
+      title: 'NASA Ames Research Center',
+      start: '2023-06-03',
+      end: '2024-05-10',
+      link: 'https://www.nasa.gov/ames/',
+    },
+	{
+      title: 'MESA',
+      start: '2023-08-10',
+      end: '2024-04-30',
+      link: 'https://www.bakersfieldcollege.edu/campus-life/student-communities/mesa/index.html',
+    },
+	{
+      title: 'blm',
+      start: '2023-08-01',
+      end: '2023-10-31',
+      link: 'https://www.blm.gov/office/bakersfield-field-office',
+    },
+    // Add more experiences here
+  ];
+
+  // Define the timeline start and end dates
+  const timelineStartDate = new Date('2023-01-01').getTime();
+  const timelineEndDate = new Date('2024-12-31').getTime();
+  const todayDate = new Date().getTime();
+
+  // Position the bars
+  const barContainer = document.querySelector('.timeline-bar-container');
+  let index = 0;
+
+  experiences.forEach(exp => {
+    const bar = document.querySelector(`.timeline-bar[data-title="${exp.title}"]`);
+    const start = new Date(exp.start).getTime();
+    const end = exp.end === 'present' ? todayDate : new Date(exp.end).getTime();
+
+    const barWidth = ((end - start) / (timelineEndDate - timelineStartDate)) * 100;
+    const barLeft = ((start - timelineStartDate) / (timelineEndDate - timelineStartDate)) * 100;
+
+    bar.style.width = `${barWidth}%`;
+    bar.style.left = `${barLeft}%`;
+    bar.style.top = `${index * 30}px`; // Adjust spacing between bars
+    index++;
+
+    // Optional: Make the bar clickable
+    if (exp.link) {
+      bar.style.cursor = 'pointer';
+      bar.addEventListener('click', function() {
+        window.open(exp.link, '_blank');
+      });
+    }
+  });
+
+  // Add the current date marker
+  const todayMarker = document.createElement('div');
+  todayMarker.className = 'today-marker';
+  todayMarker.style.left = `${((todayDate - timelineStartDate) / (timelineEndDate - timelineStartDate)) * 100}%`;
+  barContainer.appendChild(todayMarker);
+</script>
+<script>
+
+$(document).ready(function() {
+    var $header = $('#header');
+    var $banner = $('#banner');
+
+    function checkScroll() {
+        var scrollTop = $(window).scrollTop();
+        var bannerHeight = $banner.outerHeight();
+
+        if (scrollTop < bannerHeight) {
+            // Add class when banner is in view
+            $header.addClass('header-transparent');
+        } else {
+            // Remove class when scrolled past banner
+            $header.removeClass('header-transparent');
+        }
+    }
+
+    // Initial check
+    checkScroll();
+
+    // Check on scroll
+    $(window).on('scroll', function() {
+        checkScroll();
+    });
+});
 
 
-function showSlides1() {
-  let i;
-  let slides = document.getElementsByClassName("mySlides1");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
+function startSlideshow(className, interval = 4000) {
+    let slideIndex = 0;
+
+    function showSlides() {
+      let slides = document.getElementsByClassName(className);
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, interval);
+    }
+
+    showSlides(); // Start the slideshow
   }
-  slideIndex1++;
-  if (slideIndex1 > slides.length) {slideIndex1 = 1}    
-  slides[slideIndex1-1].style.display = "block";  
-  setTimeout(showSlides1, 4000); // Change image every 2 seconds
-}
 
-let slideIndex2 = 0;
-showSlides2();
-function showSlides2() {
-  let i;
-  let slides = document.getElementsByClassName("mySlides2");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
-  }
-  slideIndex2++;
-  if (slideIndex2 > slides.length) {slideIndex2 = 1}    
-  slides[slideIndex2-1].style.display = "block";  
-  setTimeout(showSlides2, 4000); // Change image every 2 seconds
-}
+  // Start all the slideshows by providing their class names
+  startSlideshow("mySlides1");
+  startSlideshow("mySlides2");
+  startSlideshow("mySlides4");
+
 
 let slideIndex3 = 0;
 showSlides3(slideIndex3);

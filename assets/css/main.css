@@ -1,11 +1,6 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic");
 
-/*
-	Spectral by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
 
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
@@ -2329,6 +2324,8 @@ input, select, textarea {
 
 				}
 
+
+
 /* Table */
 
 	.table-wrapper {
@@ -2709,21 +2706,38 @@ input, select, textarea {
 		.spotlight:nth-child(2) {
 			background-color: rgba(0, 0, 0, 0.15);
 		}
+		.spotlight:nth-child(11) {
+			background-color: rgba(0, 0, 0, 0.35);
+		}
 
 		.spotlight:nth-child(3) {
 			background-color: rgba(0, 0, 0, 0.225);
+		}
+		.spotlight:nth-child(12) {
+			background-color: rgba(0, 0, 0, 0.425);
 		}
 
 		.spotlight:nth-child(4) {
 			background-color: rgba(0, 0, 0, 0.3);
 		}
 
+		.spotlight:nth-child(13) {
+			background-color: rgba(0, 0, 0, 0.5);
+		}
+
 		.spotlight:nth-child(5) {
 			background-color: rgba(0, 0, 0, 0.375);
+		}
+		.spotlight:nth-child(14) {
+			background-color: rgba(0, 0, 0, 0.575);
 		}
 
 		.spotlight:nth-child(6) {
 			background-color: rgba(0, 0, 0, 0.45);
+		}
+
+		.spotlight:nth-child(15) {
+			background-color: rgba(0, 0, 0, 0.65);
 		}
 
 		.spotlight:nth-child(7) {
@@ -2741,6 +2755,7 @@ input, select, textarea {
 		.spotlight:nth-child(10) {
 			background-color: rgba(0, 0, 0, 0.75);
 		}
+
 
 		@media screen and (max-width: 1280px) {
 
@@ -3963,17 +3978,7 @@ input, select, textarea {
 
 /* Landing */
 
-	body.landing #page-wrapper {
-		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-attachment: fixed;
-		background-position: center center;
-		background-repeat: no-repeat;
-		background-size: cover;
-		padding-top: 0;
-	}
+
 
 	body.landing #footer {
 		background-color: rgba(29, 36, 42, 0.9);
@@ -3985,10 +3990,10 @@ input, select, textarea {
 
 	body.is-mobile.landing #banner,
 	body.is-mobile.landing .wrapper.style4 {
-		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
+		/* background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
 		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
 		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
+		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg"); */
 		background-position: center center;
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -3997,3 +4002,148 @@ input, select, textarea {
 	body.is-mobile.landing #footer {
 		background-color: #1d242a;
 	}
+	body.landing #page-wrapper {
+		background-color: transparent; /* Ensure the background is transparent */
+		padding-top: 0;
+	}
+/* Background Video */
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+
+
+.more.scrolly {
+    z-index: 2;
+}
+
+/* Mobile Adjustments */
+@media screen and (max-width: 736px) {
+    #bg-video {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		z-index: -1;
+    }
+
+    body.landing #page-wrapper {
+        /* background-image: url("../../images/banner.jpg"); */
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+/* Timeline Container */
+.timeline-container {
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
+	font-family: 'Montserrat', sans-serif;
+	background-color: #020202bd;
+	padding: 20px;
+	box-sizing: border-box;
+	border-radius: 15px;
+  }
+  
+  /* Timeline Dates (Years) */
+  .timeline {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+	position: relative;
+	padding-bottom: 10px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  }
+  
+  .timeline-date {
+	font-size: 14px;
+	color: #e8e6e6;
+	text-align: center;
+	flex-grow: 1;
+	position: relative;
+	font-weight: bold;
+  }
+  
+  .timeline-date div {
+	margin: 2px 0;
+	position: relative;
+	z-index: 1;
+	top: 5px;
+  }
+  
+  /* Vertical Lines Between Years */
+  .timeline-date:not(:first-child):before {
+	content: "";
+	position: absolute;
+	height: calc(100% + 290px);
+	width: 1px;
+	background: rgba(255, 255, 255, 0.4);
+	left: 0;
+	top: 0px;
+  }
+  
+  /* Timeline Bars */
+  .timeline-bar-container {
+	position: relative;
+	height: 300px; /* Adjust based on the number of experiences */
+  }
+  
+  .timeline-bar {
+	height: 14px;
+	border-radius: 7px;
+	margin: 3px 0;
+	position: absolute;
+	transition: background-color 0.3s;
+	cursor: pointer;
+	background-color: #00457a; /* Default color */
+  }
+  
+  .timeline-bar:hover {
+	opacity: 0.8;
+  }
+  
+  /* Labels for Experiences */
+  .timeline-label {
+	color: rgb(237, 237, 237);
+	font-family: 'Montserrat', sans-serif;
+	font-size: 12px;
+	font-weight: 600;
+	position: absolute;
+	right: calc(100% + 10px);
+	top: 50%;
+	transform: translateY(-50%);
+	white-space: nowrap;
+	z-index: 2;
+  }
+  
+  /* Current Date Marker */
+  .today-marker {
+	position: absolute;
+	height: 100%;
+	width: 2px;
+	top: -2px;
+	background-color: rgb(0, 232, 236);
+	z-index: 1;
+  }
+  
+  .today-marker:before {
+	content: "";
+	position: absolute;
+	top: -8px;
+	left: -4px;
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 10px solid rgb(0, 232, 236);
+  }
