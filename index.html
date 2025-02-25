@@ -301,10 +301,17 @@ img {vertical-align: middle;}
 					<div class="timeline">
 					  <div class="timeline-date"><div>2023</div></div>
 					  <div class="timeline-date"><div>2024</div></div>
+					  <div class="timeline-date"><div>2025</div></div>
 					</div>
 					<!-- Timeline Bars -->
 					<div class="timeline-bar-container">
 					  <!-- Each bar represents an experience -->
+					  <div class="timeline-bar" data-title="Blue Marble Space" data-start="2025-01-13" data-end="2025-05-31">
+						<span class="timeline-label">Blue Marble Space</span>
+					  </div>
+					  <div class="timeline-bar" data-title="Cliffco Mortgage Bankers" data-start="2024-11-24" data-end="2025-05-31">
+						<span class="timeline-label">Cliffco Mortgage Bankers</span>
+					  </div>
 					  <div class="timeline-bar" data-title="NASA Johnson Space Center" data-start="2024-06-01" data-end="2024-05-31">
 						<span class="timeline-label">NASA Johnson Space Center</span>
 					  </div>
@@ -610,9 +617,21 @@ new Runtime().module(define, name => {
 <script>
 	  const experiences = [
     {
+      title: 'Blue Marble Space',
+      start: '2025-01-13',
+      end: 'present',
+      link: 'https://bluemarblespace.org/', // Optional: URL to more details
+    },
+    {
+      title: 'Cliffco Mortgage Bankers',
+      start: '2024-11-24',
+      end: 'present',
+      link: 'https://cliffcomortgage.com/', // Optional: URL to more details
+    },
+    {
       title: 'NASA Johnson Space Center',
       start: '2024-08-12',
-      end: 'present',
+      end: '2024-11-30',
       link: 'https://www.nasa.gov/johnson/', // Optional: URL to more details
     },
     {
